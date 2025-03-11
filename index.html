@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <form method="POST">
+    <div class="form-container" style="background-color: purple;">
+        <h2>Login Form</h2>
+        <input type="text" id="username" name="first" placeholder="Enter Username" required>
+        <input type="password" id="password" name="second" placeholder="Enter Password" required>
+        <button id="submitBtn" name="save" type="Submit" disabled>Submit</button>
+    </div>
+</form>
+
+    <script>
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function checkForm() {
+            if (username.value.trim() !== "" && password.value.trim() !== "") {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('active');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('active');
+            }
+        }
+
+        username.addEventListener('input', checkForm);
+        password.addEventListener('input', checkForm);
+    </script>
+
+</body>
+</html>
+
+
